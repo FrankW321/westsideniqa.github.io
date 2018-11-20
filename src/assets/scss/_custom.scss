@@ -1,0 +1,682 @@
+// Fade effect mixin
+@mixin faded_black() {
+    background: linear-gradient(to bottom, rgba(0,0,0,.7) 20% , rgba(0,0,0,.3)  );
+}
+@mixin background_image($page) {
+    background-image: url(../img/featured/small/#{$page}.jpg);
+    @include breakpoint(medium) {
+        background-image: url(../img/featured/medium/#{$page}.jpg);
+    }
+    @include breakpoint(large) {
+        background-image: url(../img/featured/large/#{$page}.jpg);
+    }
+}
+
+// Bellefair Font
+$bellefair: 'Bellefair', serif;
+
+.container {
+    @include xy-grid-container();
+    @include padding(null, 0, null, 0);
+}
+.main-content {
+    background-color: $white;
+    padding: rem-calc(50);
+    @include breakpoint(medium) {
+        margin-top: rem-calc(-120);
+        position: relative;
+        padding: rem-calc(50 80);
+    }
+}
+.site-header {
+    background-size: cover;
+    position: relative;
+    height: 100vh;
+    background-attachment: scroll;
+    @include breakpoint(large) {
+        background-attachment: fixed;
+    }
+
+    &.homepage {
+        @include background_image(home);
+    }
+    &.process {
+        @include background_image(process);
+    }
+    &.currentmovies {
+        @include background_image(currentmovies);
+    }
+    &.upcomingmovies {
+        @include background_image(upcomingmovies);
+    }
+    &.register {
+        @include background_image(register);
+    }
+    .header-content {
+        padding-top: rem-calc(30);
+        .top-section {
+            @include xy-grid();
+            @include flex-align(center, top);
+            position: relative;
+            z-index: 1;
+            
+            .logo {
+                @include xy-cell(6);
+                @include flex-align(center, middle);
+                @include breakpoint(medium) {
+                    @include xy-cell(25%);
+                }
+                
+            }
+
+        }
+        .bottom-section {
+            @include margin(4);
+            @include breakpoint(medium only) {
+                height: rem-calc(230);
+                @include flex();
+                @include flex-align(center, bottom);
+            }
+            .slogan {
+                color: $white;
+                position: relative;
+                z-index: 1;
+                text-align: center;
+                @include font-bold(900);
+                @include text-transform(uppercase);
+            }
+        }
+    }
+    
+    &:after {
+        @include faded_black();
+        @include position(absolute, 0,0,0,0);
+        content: '';
+        @include box(100%, 100%);
+    }
+}
+
+.menus {
+    @include xy-cell();
+    @include breakpoint(medium) {
+        @include xy-cell(auto);
+    }
+    .title-bar {
+        background-color: darken($primary-color, 10);
+    }
+    
+    // Main Navigation for Interior pages
+    .main-navigation {
+        @include menu-base();
+        @include flex-align(right, middle);
+        @include breakpoint(small only) {
+            background-color: $primary-color;
+        }
+        
+        li {
+            @include breakpoint(small only) {
+                width: 100%;
+                text-align: center;
+            }
+            a {
+                @include text-transform(uppercase);
+                @include font-bold(700);
+                font-size: rem-calc(16);
+                
+                &:hover {
+                    color: $secondary-color;
+                }
+            }
+        }
+    }
+}
+
+// Animation Menus
+
+.menu-in {
+    @include mui-zoom(in, .1, 1 );
+}
+.menu-out {
+    @include mui-zoom(out, 1, .1, true, .5s, ease)
+}
+
+.reveal-in {
+    @include mui-fade();
+}
+.reveal-out {
+    @include mui-fade(out, 1, 0);
+}
+// Index Page - About
+.about-us-homepage {
+
+    text-align: center;
+    p {
+        text-align: center;
+        line-height: rem-calc(40);
+        font-size: rem-calc(18);
+    }
+    h3{
+        @include font-bold(700);
+        color: white;
+        display: inline-block;
+        width: 80%;
+        border-bottom: rem-calc(5) solid $primary-color;
+        margin-top: 10px;
+        font-size: rem-calc(48);
+        padding:5px 10px;
+        @include breakpoint(small only){
+            font-size: rem-calc(28);
+            
+        }
+    }
+    h4{
+        display: inline-block;
+        width: 50%;
+        border-top: rem-calc(5) solid $secondary-color;
+        color: white;
+        padding:5px 10px;
+        @include breakpoint(small only){
+            font-size: rem-calc(20);
+            width: 60%;
+        }
+    }
+}
+
+// Footer 
+.site-footer {
+    background-color: $primary-color;
+
+    .copyright {
+        margin:0;
+        color: $white;
+        text-align: center;
+        font-size:rem-calc(18);
+        @include padding(1, null, 1, null);
+        @include font-bold(900);
+    }
+}
+
+.heading-title {
+    color: $secondary-color;
+    text-align: center;
+    @include font-bold(900);
+    @include text-transform(uppercase);
+    font-size:rem-calc(18);
+    margin-bottom: rem-calc(100);
+    margin-top: rem-calc(40);
+    width: 100%;
+    span {
+        color: $primary-color;
+        font-size: rem-calc(38);
+        display: table;
+        margin:0 auto;
+    }
+    &:after {
+        content: '';
+        @include box(rem-calc(80), rem-calc(80));
+        background-image:url(../img/cinemaicon.svg);
+        background-size: rem-calc(80);
+        background-repeat: no-repeat;
+        @include horizontal-center();
+        margin-top:rem-calc(-15);
+    }
+}
+/** Internal Pages **/
+
+/** Process */
+.page-process {
+    .process-container {
+        @include xy-grid();
+        .process-item {
+            @include xy-gutters($gutter-position: bottom);
+            @include xy-cell();
+            border: rem-calc(5) solid $primary-color;
+            @include breakpoint(medium) {
+                @include xy-cell(6);
+            }
+        }
+        @include breakpoint(medium) {
+            @include odd() {
+                .process-image {
+                    order: 2;
+
+                }
+                .process-content {
+                    order: 1;
+                    border: rem-calc(5) solid $white;
+                }
+            }
+        }
+        .process-content {
+            border: rem-calc(5) solid $white;
+            h3 {
+                color: $primary-color;
+                @include margin(1);
+                @include text-transform(uppercase);
+                @include font-bold(900);
+                &:after {
+                    width: rem-calc(200);
+                    height: rem-calc(2);
+                    background-color: $secondary-color;
+                    content: '';
+                    display: block;
+                    margin-top: rem-calc(10);
+                }
+            }
+            p {
+                font-size:rem-calc(18);
+                line-height: rem-calc(38);
+                margin-top: rem-calc(30);
+            }
+        }
+    }
+}
+/** Menu **/
+.page-currentmovies {
+    @include xy-grid();
+    padding-bottom: 0;
+    .menu-description {
+        @include xy-cell();
+        @include breakpoint(large) {
+            @include xy-cell(5);
+        }
+        p {
+            text-align: center;
+            line-height: rem-calc(50);
+        }
+    }
+    .menu-image {
+        @include xy-cell();
+        @include breakpoint(large) {
+            @include xy-cell(7);
+        }
+        @include flex-align(center, bottom);
+        @include flex();
+    }
+}
+
+/** register Us **/
+.page-register {
+    background-image:url(../img/popcorn.jpg);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 60%;
+    @include xy-grid();
+    @include breakpoint(medium) {
+        background-size: 40%;
+    }
+    .reservation-form {
+        @include xy-cell();
+        @include breakpoint(medium) {
+            @include xy-cell(6);
+        }
+    }
+}
+.field-container {
+    display: inline;
+    
+    label {
+        color: $black;
+        font-size: rem-calc(20);
+        @include font-bold();
+        @include text-transform(uppercase);
+    }
+    input, select {
+        border: rem-calc(5) solid $primary-color;
+        height: rem-calc(50);
+    }
+    .send_btn {
+        @include font-bold();
+        @include text-transform(uppercase);
+        font-size:rem-calc(18);
+        width: 100%;
+        height: auto;
+    }
+}
+
+section.movie {
+    @include xy-grid();
+    @include flex-align(center, middle);
+	padding: rem-calc(30 0);
+	a {
+		color:$black;
+	}
+	div.movie-image {
+		position: relative;
+
+		.movie-title {
+			position: absolute;
+			bottom:0;
+			left:0;
+			padding-left:rem-calc(20);
+			h3 {
+                color:$black;
+                font-size: rem-calc(28);
+                @include breakpoint(medium only) {
+                    font-size:rem-calc(25);
+			}
+		}
+    }
+}
+	div.movie-content {
+		background-color:$white;
+        padding:rem-calc(20);
+        font-size: rem-calc(16);
+	}
+}
+video{
+    @include xy-grid();
+    @include flex-align(center, middle);
+    padding: rem-calc(30 0);
+}
+
+
+@mixin button-bg($bg) {
+  background: $bg;
+  &:hover {
+    background:darken($bg,8%);
+    transition: all 0.3s ease;
+  }
+  &:active {
+    background:darken($bg,25%);
+  } 
+}
+
+.btn {
+ color:white;
+ text-decoration:none;
+ padding:5px 10px;
+ border-radius:3px;
+ font-size:2em;
+}
+
+.btn-red {
+   @include button-bg($primary-color);
+}
+
+/*Other Styles*/
+.wrap {
+  @include font-bold();
+  font-size:rem-calc(16);
+  width: 100%;
+  height: auto;
+}
+h1 {
+  font-size:4em;
+}
+.search-form {
+    
+    display: flex;
+    @include xy-cell();
+    margin-left: 0;
+    margin-right: 0; 
+    
+    input, select, option {
+        height: rem-calc(50);
+      font-size:rem-calc(16);
+    
+    }
+    select{
+        @include breakpoint(small only) {
+        font-size:rem-calc(13);
+        }
+    }
+}
+
+/* The selectbutton */
+.selectbutton {
+    display: table;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.selectbutton input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 8px;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: $white;
+    border: rem-calc(2) solid $primary-color;
+}
+
+
+/* When the checkbox is checked, add a blue background */
+.selectbutton input:checked ~ .checkmark {
+    background-color: $primary-color;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.selectbutton input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.selectbutton .checkmark:after {
+    left: 7px;
+    top: 4px;
+    width: 8px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+#exampleModal2 {
+left: 8.5px;
+top: 100px;
+
+table tr > *{
+    display: block;
+}
+table tr {
+    display: table-cell;
+}
+}
+.lead{
+    text-align: justify;
+}
+
+.align-middle {
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-align:center;
+    -ms-flex-align:center;
+    align-items:center;
+  }
+
+#breakpoint_detailedview{
+    margin-top: 10px;
+    @include breakpoint(medium only){
+        display: contents;
+    }
+}
+
+
+.movie-rating {
+    
+    display: flex;
+    float: right;
+
+    h2 {
+        font-size: rem-calc(40);
+        @include breakpoint(small only){
+            font-size: rem-calc(30);
+            margin-top: rem-calc(5);
+        }
+
+    }
+
+
+    img{
+        margin-top: rem-calc(8);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        width: 40px;
+        height: 40px;
+    }
+
+}
+
+.cinema-name-red {
+    display: flex;
+    float: left;
+    bottom:0;
+    left:0;
+    padding-left:rem-calc(20);
+    border-left: rem-calc(5) solid $primary-color;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.cinema-name-yellow {
+    display: flex;
+    float: left;
+    bottom:0;
+    left:0;
+    padding-left:rem-calc(20);
+    border-left: rem-calc(5) solid rgb(235, 219, 0);
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.cinema-name-green {
+    display: flex;
+    float: left;
+    bottom:0;
+    left:0;
+    padding-left:rem-calc(20);
+    border-left: rem-calc(5) solid rgb(7, 197, 0);
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.order-notification{
+    margin-top: rem-calc(20);
+
+}
+
+.cinema-time{
+
+    padding:rem-calc(10);
+    font-size: rem-calc(6);
+    h4{
+        padding:rem-calc(10);
+        font-size: rem-calc(20);
+        
+    }
+
+}
+
+.order-btn {
+    font-size: rem-calc(25);
+ }
+ .movie_img{
+    margin-top: 22px;
+ }
+
+ .cinemastill{
+     margin-top:10px;
+     @include breakpoint(small only){
+        font-size: rem-calc(24);
+     }
+
+ }
+
+ .cinemanamefix{
+     display: flex;
+     margin-top:20px;
+     @include breakpoint(small only){
+        margin-top:30px;
+        display: table;
+     }
+     @include breakpoint(medium only){
+        margin-top:30px;
+        display: table;
+     }
+ }
+
+
+
+
+
+ .about-us-homepage {
+    margin-right: -80px;
+    margin-left: -80px;
+    background-image: url(../img/menu.jpg);
+    @include padding(3, null, 3, null);
+    position: relative;
+    background-position: center center;
+    background-attachment: scroll;
+    @include breakpoint(large) {
+        background-size: cover;
+        background-attachment: fixed;
+    }
+    @include breakpoint(small only) {
+        margin-right: -50px;
+        margin-left: -50px;
+    }
+
+
+    .bright{
+        color: $secondary-color;
+        font-size: rem-calc(30);
+        margin-top: -40px;
+    }
+    h2 {
+        color: $white;
+        @include font-bold(900);
+        @include text-transform(uppercase);
+        text-align: center;
+        font-size: rem-calc(20);
+        margin-bottom: rem-calc(40);
+        position: relative;
+        margin-top: -5px;
+        span {
+            @include display(table);
+            margin:0 auto;
+            font-size: rem-calc(30);
+        }
+    }
+    &:after {
+        content: '';
+        @include position(absolute, 0,0,0,0);
+        background-color: rgba(46,23, 15, .86);
+    }
+    .container {
+        position: relative;
+        z-index:10;
+    }
+
+}
