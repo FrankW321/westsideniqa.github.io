@@ -1,0 +1,36 @@
+---
+title: register
+slogan: Become a member today
+---
+
+<div class="container">
+    <main class="main-content page-{{title}}">
+        <h2 class="heading-title">Make your account <span>here</span></h2>
+
+        <div class="reservation-form">
+            <form method="post" id="contact-form" action="assets/php/send.php" data-abide novalidate>
+                <div class="field-container">
+                    <label for="name">
+                        Your Name:
+                        <input type="text" id="name" placeholder="Full Name" name="name" required>
+                        <span class="form-error">
+                            Error, the name field is mandatory!
+                        </span>
+                    </label>
+                </div>
+                <div class="field-container">
+                    <label for="email">
+                        Email:
+                        <input type="text" id="email" placeholder="Email" name="email" required pattern="email">
+                        <span class="form-error">
+                            Error, the Email field is mandatory!
+                        </span>
+                    </label>
+                </div>
+                <div class="field-container">
+                    <input type="submit" value="Submit" class="button send_btn">
+                </div>
+            </form>
+        </div>
+    </main>
+</div>

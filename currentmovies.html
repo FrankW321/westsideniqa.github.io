@@ -1,0 +1,177 @@
+---
+title: currentmovies
+slogan: Enjoy the finest movies
+---
+
+<div class="container">
+    <main class="main-content page-{{title}}">
+        <h2 class="heading-title">These are current<span>Movies</span></h2>
+
+        <!-- 1.Search and filtering -->
+        <div class="search-form">
+            <input type="search" placeholder="Search..">
+            <input type="submit" value="Search" class="button send_btn">
+        </div>
+
+        <div class="search-form">
+            <input type="submit" value="Filter movies" class="button send_btn">
+            <select name="rating">
+                <option value="default">All ratings</option>
+                <option value="5">5+</option>
+                <option value="6">6+</option>
+                <option value="7">7+</option>
+                <option value="8">8+</option>
+                <option value="9">9+</option>
+            </select>
+            <select name="genre">
+                <option value="default">All genres</option>
+                <option value="action">Action</option>
+                <option value="adventure">Adventure</option>
+                <option value="comedy">Comedy</option>
+                <option value="drama">Drama</option>
+                <option value="war">War</option>
+                <option value="horror">Horror</option>
+            </select>
+            <select name="order by">
+                <option value="default">Latest</option>
+                <option value="oldest">Oldest</option>
+                <option value="likes">Likes</option>
+                <option value="comments">Comments</option>
+            </select>
+        </div>
+
+        <!-- 2. Movies display !!!!Fully completed only first!!!!-->
+        <section class="movie">
+            <div class="medium-4 columns">
+                <div class="movie-image">
+                    <a data-open="exampleModal2">
+                        <img src="../assets/img/popcorn.jpg">
+                    </a>
+                    <div class="movie-title">
+                        <h3>Movie 01</h3>
+                    </div>
+                    <div class="movie-content">
+                        <p>Rating or genre</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="medium-4 columns">
+                <div class="movie-image">
+                    <img src="../assets/img/popcorn.jpg">
+                    <div class="movie-title">
+                        <h3>Movie 02</h3>
+                    </div>
+                    <div class="movie-content">
+                        <p>Rating or genre</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="medium-4 columns">
+                <div class="movie-image">
+                    <img src="../assets/img/popcorn.jpg">
+                    <div class="movie-title">
+                        <h3>Movie 03</h3>
+                    </div>
+                    <div class="movie-content">
+                        <p>Rating or genre</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="medium-4 columns">
+                <div class="movie-image">
+                    <img src="../assets/img/popcorn.jpg">
+                    <div class="movie-title">
+                        <h3>Movie 04</h3>
+                    </div>
+                    <div class="movie-content">
+                        <p>Rating or genre</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="medium-4 columns">
+                <div class="movie-image">
+                    <img src="../assets/img/popcorn.jpg">
+                    <div class="movie-title">
+                        <h3>Movie 05</h3>
+                    </div>
+                    <div class="movie-content">
+                        <p>Rating or genre</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="medium-4 columns">
+                <div class="movie-image">
+                    <img src="../assets/img/popcorn.jpg">
+                    <div class="movie-title">
+                        <h3>Movie 06</h3>
+                    </div>
+                    <div class="movie-content">
+                        <p>Rating or genre</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<!-- 3. Movie in-detail display -->
+<div class="large reveal" id="exampleModal2" data-reveal>
+
+    <div class="medium-4 columns" id="breakpoint_detailedview">
+        <h1>Movie 01</h1>
+        <p class="lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
+            type and scrambled it to make a type specimen book. It has survived not only five centuries, but also
+            the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
+            with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+            publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    </div>
+
+
+    <!-- 3.1 Movie date, rating and genre -->
+    <div class="medium-8 columns" id="breakpoint_detailedview">
+        <h3 class="cinemastill">In cinemas till - 12.02.2020</h3>
+        <img src="../assets/img/menu.jpg">
+        <div class="movie-rating">
+            <h2>7.2</h2>
+            <img src="../assets/img/imdb-icon.png">
+        </div>
+        <h3>Comedy, Drama</h3>
+    </div>
+
+
+    <!-- 3.2 Cinema names which plays the movie -->
+    <div class="columns">
+        <div class="cinemanamefix">
+
+            <div class="cinema-name-green">
+                <h3>Kosmos IMAX</h3>
+            </div>
+
+            <div class="cinema-time">
+                <h4>18:30; 20:30</h4>
+            </div>
+            <div class="cinema-name-red">
+                <h3>Coca-Cola Plaza</h3>
+            </div>
+
+            <div class="cinema-time">
+                <h4>20:30</h4>
+
+            </div>
+            <div class="cinema-name-yellow">
+                <h3>Apollo kino</h3>
+            </div>
+
+            <div class="cinema-time">
+                <h4>14:50; 13:20; 22:30</h4>
+
+            </div>
+        </div>
+    </div>
+</div>

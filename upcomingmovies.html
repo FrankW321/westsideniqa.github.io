@@ -1,0 +1,175 @@
+---
+title: upcomingmovies
+slogan: Know when it's arriving
+---
+
+<div class="container">
+    <main class="main-content page-{{title}}">
+        <h2 class="heading-title">Everything about upcoming<span>Movies</span></h2>
+
+        <!-- 1.Search and filtering -->
+        <div class="search-form">
+            <input type="search" placeholder="Search..">
+            <input type="submit" value="Search" class="button send_btn">
+        </div>
+
+        <div class="search-form">
+            <input type="submit" value="Filter movies" class="button send_btn">
+            <select name="rating">
+                <option value="default">All ratings</option>
+                <option value="5">5+</option>
+                <option value="6">6+</option>
+                <option value="7">7+</option>
+                <option value="8">8+</option>
+                <option value="9">9+</option>
+            </select>
+            <select name="genre">
+                <option value="default">All genres</option>
+                <option value="action">Action</option>
+                <option value="adventure">Adventure</option>
+                <option value="comedy">Comedy</option>
+                <option value="drama">Drama</option>
+                <option value="war">War</option>
+                <option value="horror">Horror</option>
+            </select>
+            <select name="order by">
+                <option value="default">Latest</option>
+                <option value="oldest">Oldest</option>
+                <option value="likes">Likes</option>
+                <option value="comments">Comments</option>
+            </select>
+        </div>
+
+        <!-- 2. Movies display !!!!Fully completed only first!!!!-->
+        <section class="movie">
+            <div class="medium-4 columns">
+                <div class="movie-image">
+                    <a data-open="exampleModal2">
+                        <img src="../assets/img/popcorn.jpg">
+                    </a>
+                    <div class="movie-title">
+                        <h3>Movie 01</h3>
+                    </div>
+                    <div class="movie-content">
+                        <p>Rating or genre</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="medium-4 columns">
+                <div class="movie-image">
+                    <img src="../assets/img/popcorn.jpg">
+                    <div class="movie-title">
+                        <h3>Movie 02</h3>
+                    </div>
+                    <div class="movie-content">
+                        <p>Rating or genre</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="medium-4 columns">
+                <div class="movie-image">
+                    <img src="../assets/img/popcorn.jpg">
+                    <div class="movie-title">
+                        <h3>Movie 03</h3>
+                    </div>
+                    <div class="movie-content">
+                        <p>Rating or genre</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="medium-4 columns">
+                <div class="movie-image">
+                    <img src="../assets/img/popcorn.jpg">
+                    <div class="movie-title">
+                        <h3>Movie 04</h3>
+                    </div>
+                    <div class="movie-content">
+                        <p>Rating or genre</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="medium-4 columns">
+                <div class="movie-image">
+                    <img src="../assets/img/popcorn.jpg">
+                    <div class="movie-title">
+                        <h3>Movie 05</h3>
+                    </div>
+                    <div class="movie-content">
+                        <p>Rating or genre</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="medium-4 columns">
+                <div class="movie-image">
+                    <img src="../assets/img/popcorn.jpg">
+                    <div class="movie-title">
+                        <h3>Movie 06</h3>
+                    </div>
+                    <div class="movie-content">
+                        <p>Rating or genre</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+    <!-- 3. Movie in-detail display -->
+    <div class="large reveal" id="exampleModal2" data-reveal>
+
+        <div class="medium-4 columns" id="breakpoint_detailedview">
+            <h1>Movie 01</h1>
+            <p class="lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
+                type and scrambled it to make a type specimen book. It has survived not only five centuries, but also
+                the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
+                with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+                publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+        </div>
+
+        <!-- 3.1 Movie date, rating and genre -->
+        <div class="medium-8 columns" id="breakpoint_detailedview">
+            <h3 class="cinemastill">Coming to cinemas - 12.02.2020</h3>
+            <img src="../assets/img/menu.jpg">
+            <div class="movie-rating">
+                <h2>7.2</h2>
+                <img src="../assets/img/imdb-icon.png">
+            </div>
+            <h3>Comedy, Drama</h3>
+        </div>
+
+        <!-- 3.2 Notifications Column -->
+        <div class="columns">
+            <div class="order-notification">
+                <label class="selectbutton">
+
+                    <input type="checkbox" name="email" value="email"> Email-notification<br>
+                    <span class="checkmark"></span>
+                </label>
+                <label class="selectbutton">
+                    <input type="checkbox" name="sms" value="sms"> SMS-notification(-0.32€)<br>
+                    <span class="checkmark"></span>
+                </label>
+                <button class="button order-btn" data-open="exampleModal3">Order notifications</button>
+
+                <button class="close-button" data-close aria-label="Close reveal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal closing -->
+    <div class="reveal" id="exampleModal3" data-reveal>
+        <h2>Notifications ordered!</h2>
+        <button class="close-button" data-close aria-label="Close reveal" type="button">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</div>
